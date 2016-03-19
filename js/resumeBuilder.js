@@ -48,7 +48,7 @@
       name: "National Cheng Kung University",
       location: "Tainan, Taiwan",
       degree: "Bachelor",
-      majors: "Computer Science",
+      majors: ["Computer Science"],
       dates: 2015,
       url: "http://web.ncku.edu.tw/bin/home.php"
     }],
@@ -138,7 +138,10 @@
       var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', school.degree);
       var formattedSchoolDates = HTMLschoolDates.replace('%data%', school.dates);
       var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', school.location);
-      var formattedSchoolMajors = HTMLschoolMajor.replace('%data%', school.majors);
+      var formattedSchoolMajors = '';
+      school.majors.forEach(function(major) {
+        formattedSchoolMajors += HTMLschoolMajor.replace('%data%', major);
+      });
 
       $('.education-entry:last').append(formattedSchoolName, formattedSchoolDegree,
                                        formattedSchoolDates, formattedSchoolLocation, 
