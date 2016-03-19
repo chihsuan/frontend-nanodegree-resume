@@ -72,26 +72,23 @@
 
   bio.display = function() {
 
+    // basic
     var formattedName = HTMLheaderName.replace('%data%', bio.name);
     var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-
-    $('#header').prepend(formattedRole);
-    $('#header').prepend(formattedName);
+    $('#header').prepend(formattedRole, formattedName);
 
     // contacts
     for(var contactMethod in bio.contacts) {
       var formattedContact = HTMLcontactGeneric
         .replace('%contact%', contactMethod)
         .replace('%data%', bio.contacts[contactMethod]);
-      $('#topContacts').append(formattedContact);
-      $('#footerContacts').append(formattedContact);
+      $('#topContacts, #footerContacts').append(formattedContact);
     }
 
+    // pic & message
     var formattedWelcomeMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
     var formattedBioPic = HTMLbioPic.replace('%data%', bio.biopic);
-
-    $('#header').append(formattedWelcomeMsg);
-    $('#header').append(formattedBioPic);
+    $('#header').append(formattedWelcomeMsg, formattedBioPic);
 
     // skills
     $('#header').append(HTMLskillsStart);
@@ -112,11 +109,9 @@
       var formattedWorkLocation = HTMLworkLocation.replace('%data%', job.location);
       var formattedWorkDescription = HTMLworkDescription.replace('%data%', job.description);
 
-      $('.work-entry:last').append(formattedEmployer);
-      $('.work-entry:last').append(formattedWorkTitle);
-      $('.work-entry:last').append(formattedWorkDates);
-      $('.work-entry:last').append(formattedWorkLocation);
-      $('.work-entry:last').append(formattedWorkDescription);
+      $('.work-entry:last').append(formattedEmployer, formattedWorkTitle,
+                                  formattedWorkDates, formattedWorkLocation,
+                                  formattedWorkDescription);
     });
 
   };
@@ -130,10 +125,8 @@
       var formattedPorjDesc = HTMLprojectDescription.replace('%data%', project.description);
       var formattedPorjImage = HTMLprojectImage.replace('%data%', project.images);
 
-      $('.project-entry:last').append(formattedPorjTtitle);
-      $('.project-entry:last').append(formattedPorjDates);
-      $('.project-entry:last').append(formattedPorjDesc);
-      $('.project-entry:last').append(formattedPorjImage);
+      $('.project-entry:last').append(formattedPorjTtitle, formattedPorjDates,
+                                     formattedPorjDesc, formattedPorjImage);
     });
   };
 
@@ -147,11 +140,9 @@
       var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', school.location);
       var formattedSchoolMajors = HTMLschoolMajor.replace('%data%', school.majors);
 
-      $('.education-entry:last').append(formattedSchoolName);
-      $('.education-entry:last').append(formattedSchoolDegree);
-      $('.education-entry:last').append(formattedSchoolDates);
-      $('.education-entry:last').append(formattedSchoolLocation);
-      $('.education-entry:last').append(formattedSchoolMajors);
+      $('.education-entry:last').append(formattedSchoolName, formattedSchoolDegree,
+                                       formattedSchoolDates, formattedSchoolLocation, 
+                                       formattedSchoolMajors);
     });
 
     $('#education').append(HTMLonlineClasses);
@@ -163,10 +154,8 @@
       var formattedOnlineDates =  HTMLonlineDates.replace('%data%', onlineCourse.date);
       var formattedOnlineURL = HTMLonlineURL.replace('%data%', onlineCourse.url);
 
-      $('.education-entry:last').append(formattedOnlineTitle);
-      $('.education-entry:last').append(formattedOnlineSchool);
-      $('.education-entry:last').append(formattedOnlineDates);
-      $('.education-entry:last').append(formattedOnlineURL);
+      $('.education-entry:last').append(formattedOnlineTitle, formattedOnlineSchool,
+                                       formattedOnlineDates, formattedOnlineURL);
     });
   };
 
@@ -175,7 +164,6 @@
   projects.display();
   education.display();
   $('#mapDiv').append(googleMap);
-  $('#main').append(internationalizeButton);
 
   function inName(name) {
     var nameArray = name.trim().split(' ');
