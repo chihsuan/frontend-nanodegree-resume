@@ -18,10 +18,27 @@ h6 {
   overflow: auto;
 }
 
+/* custom */
+
+#workExperience,
+#projects,
+#education {
+  min-height: 250px;
+  padding: 20px 0;
+}
+
 .education-entry,
 .work-entry,
 .project-entry {
   padding: 0 5%;
+}
+
+.project-img {
+  max-height: 150px;
+}
+
+.project-entry {
+  display: none;
 }
 
 h1 {
@@ -34,13 +51,15 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #888;
   line-height: 29px;
   padding: 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
 h3 {
-  font-style: italic;
   font-size: 20px;
   color: #000;
   line-height: 22px;
@@ -93,7 +112,8 @@ a {
 }
 
 .welcome-message {
-  font-style: italic;
+  margin-top: 5px;
+  display: inline-block;
   font-size: 18px;
   color: #f3f3f3;
   line-height: 28px;
@@ -113,7 +133,6 @@ a {
 }
 
 .white-text {
-  font-weight: bold;
   color: #fff;
 }
 
@@ -124,12 +143,16 @@ a {
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: rgb(57, 57, 57);
 }
 
-/* TODO: Replace with image later */
+/* custom */
+
 #header {
-  background-color: #484848;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/de/Chihkan_Tower_night.JPG');
+  background-position: center center;
+  background-size: cover;
+  -webkit-filter: brightness(90%);
 }
 
 .flex-box {
