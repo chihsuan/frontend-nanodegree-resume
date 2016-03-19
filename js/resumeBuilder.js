@@ -2,6 +2,73 @@
 
   window.inName = inName;
   var windowHeight = $(window).height();
+  var bio = {
+    name: "Chi-Hsuan Huang",
+    role: "Web Developer",
+    contacts: {
+      mobile: "+886 972-796-XXX",
+      email: "chihsuan.tw@gmail.com",
+      github: "chihsuan",
+      twitter: "chisuan_haung",
+      location: "Tainan, Taiwan"
+    },
+    welcomeMessage: "“Practice makes perfect.”",
+    skills: ["html", "css", "javascript"],
+    biopic: "https://avatars2.githubusercontent.com/u/4344253?v=3&s=460"
+  };
+
+  var work = {
+    jobs: [{
+      employer: "TEDxTainan",
+      title: "web develper",
+      location: "Tainan, Taiwan",
+      dates: "2012-2015",
+      description: "Initial Official Website Creator and the Organizer of IT Department"
+    }]
+  };
+
+  var projects = {
+    projects: [{
+      title: "Taiwanstat",
+      dates: "2015~2016",
+      description: "organizer",
+      images: [
+        "http://real.taiwanstat.com/images/assert/background.png"
+      ]
+    },{
+      title: 'Instants',
+      dates: '2015',
+      description: 'creator',
+      images: 'http://i.imgur.com/5CfBh8Y.png'
+    }]
+  };
+
+  var education = {
+    schools: [{
+      name: "National Cheng Kung University",
+      location: "Tainan, Taiwan",
+      degree: "Bachelor",
+      majors: "Computer Science",
+      dates: 2015,
+      url: "http://web.ncku.edu.tw/bin/home.php"
+    }],
+    onlineCourses: [{
+      title: "Data Visualization and D3.js",
+      school: "Udacity",
+      date: "2016",
+      url: "https://www.udacity.com/"
+    },
+    {
+      title: 'Website Performance Optimization',
+      school: 'Udacity',
+      date: "2016",
+      url: "https://www.udacity.com/courses/web-development"
+    }]
+  };
+
+  window.bio = bio;
+  window.education = education;
+  window.work = work;
 
   bio.display = function() {
 
