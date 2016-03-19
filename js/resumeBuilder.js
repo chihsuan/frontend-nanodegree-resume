@@ -177,8 +177,47 @@
     return name;
   }
 
-  // fade in project-entry when on scroll project element
+  
+  var navBar = {
+    buildNavBar: buildNavBar,
+    appendNavItem: appendNavItem
+  };
+
+  navBar.buildNavBar();
+
+  function buildNavBar() {
+    if (work.jobs.length > 0) {
+      this.appendNavItem('workExperience', 'work experience');
+    }
+
+    if (projects.projects.length > 0) {
+      this.appendNavItem('projects', 'project');
+    }
+
+    if (education.schools.length > 0 ||
+       education.onlineCourses.length > 0) {
+      this.appendNavItem('education', 'education');
+    }
+    
+    $('.name').append(bio.name);
+  }
+
+  function appendNavItem(id, name) {
+    $('#nav')
+      .append($('<li>', { class: 'nav-item' })
+        .append($('<a>', { href: '#' + id, class: 'nav-link' })
+          .text(name)));
+  }
+
   $(window).scroll(function() {
+    if ($(this).scrollTop() > 50) {
+      $('#nav').show();
+    }
+    else {
+      $('#nav').hide();
+    }
+
+    // fade in project-entry when on scroll project element
     var elementTop = $('#projects').offset().top,
        elementHeight = $('#projects').outerHeight(),
        windowTop = $(this).scrollTop();
